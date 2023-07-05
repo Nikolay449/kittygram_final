@@ -16,7 +16,7 @@ jobs:
           POSTGRES_PASSWORD: ${{ env.POSTGRES_PASSWORD_TEST }}
           POSTGRES_DB: ${{ env.POSTGRES_DB_TEST }}
         ports:
-          - ${{ env.DB_PORT_TEST }}:${{ env.DB_PORT_TEST }}
+          - 5432:5432
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
     steps:
     - uses: actions/checkout@v3
@@ -36,7 +36,7 @@ jobs:
         POSTGRES_PASSWORD: ${{ env.POSTGRES_PASSWORD_TEST }}
         POSTGRES_DB: ${{ env.POSTGRES_DB_TEST }}
         DB_HOST: ${{ env.DB_HOST_TEST }}
-        DB_PORT: ${{ env.DB_PORT_TEST }}
+        DB_PORT: 5432
       run: |
         python -m flake8 backend/
         cd backend/
