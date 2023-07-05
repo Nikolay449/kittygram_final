@@ -16,7 +16,7 @@ jobs:
           POSTGRES_PASSWORD: "{{ env.POSTGRES_PASSWORD_TEST | default('TEST') }}"
           POSTGRES_DB: "{{ env.POSTGRES_DB_TEST | default('TEST') }}"
         ports:
-          - "{{ env.DB_PORT_TEST | default=0 }}":"{{ env.DB_PORT_TEST | default=0 }}"
+          - "{{ env.DB_PORT_TEST | default=0 }}": "{{ env.DB_PORT_TEST | default=0 }}"
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
     steps:
     - uses: actions/checkout@v3
